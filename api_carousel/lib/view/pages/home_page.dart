@@ -3,6 +3,8 @@ import 'package:api_carousel/provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'details_page.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -38,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                   onTap: () {
                     int? newId;
                     String? newTitle;
-                    String? newDescriptin;
+                    String? newDescription;
                     List<dynamic>? newImage;
                     int? newPrice;
                     num? newDiscount;
@@ -47,11 +49,25 @@ class _HomePageState extends State<HomePage> {
                     setState(() {
                       newId = productModel[index].id;
                       newTitle = productModel[index].title;
-                      newDescriptin = productModel[index].description;
+                      newDescription = productModel[index].description;
                       newImage = productModel[index].images;
                       newPrice = productModel[index].price;
                       newDiscount = productModel[index].discountPercent;
                       newRatings = productModel[index].rating;
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DetailsPage(
+                                  id: newId,
+                                  title: newTitle,
+                                  description: newDescription,
+                                  image: newImage,
+                                  price: newPrice,
+                                  discount: newDiscount,
+                                  ratings: newRatings,
+                                )),
+                      );
                     });
                   },
                 ),
@@ -92,8 +108,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-// Text(productModel[index].description ?? "",
-//                             textAlign: TextAlign.justify),
-//                         Text(productModel[index].category ?? "",
-//                             textAlign: TextAlign.left),

@@ -36,6 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   dio: ^4.0.6
   provider: ^6.0.3
+  carousel_slider: ^4.1.1 #A carousel slider widget, support infinite scroll and custom child widget.
+  dots_indicator: ^2.1.0 #Dots indicator to show progression of a PageView for example
+
 
 dev_dependencies:
   flutter_test:

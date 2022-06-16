@@ -31,7 +31,12 @@ class _HomePageState extends State<HomePage> {
             itemCount: productModel.length,
             itemBuilder: (BuildContext context, index) {
               return Column(
-                children: [],
+                children: [
+                  Text(productModel[index].title ?? ""),
+                  Text(productModel[index].description ?? ""),
+                  Text(productModel[index].title ?? ""),
+                  Text("Price: \$ ${productModel[index].price.toString()}"),
+                ],
               );
             });
       }),

@@ -1,18 +1,18 @@
-class Smartphones {
+class Laptop {
   final int? total;
   final int? skip;
   final int? limit;
 
   final List<Products>? product;
 
-  const Smartphones(
+  const Laptop(
       {required this.total,
       required this.skip,
       required this.limit,
       required this.product});
 
-  factory Smartphones.fromJson(Map<String, dynamic> json) {
-    return Smartphones(
+  factory Laptop.fromJson(Map<String, dynamic> json) {
+    return Laptop(
         total: json['total'],
         skip: json['skip'],
         limit: json['limit'],

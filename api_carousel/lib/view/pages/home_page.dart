@@ -30,13 +30,28 @@ class _HomePageState extends State<HomePage> {
         return ListView.builder(
             itemCount: productModel.length,
             itemBuilder: (BuildContext context, index) {
-              return Column(
-                children: [
-                  Text(productModel[index].title ?? ""),
-                  Text(productModel[index].description ?? ""),
-                  Text(productModel[index].title ?? ""),
-                  Text("Price: \$ ${productModel[index].price.toString()}"),
-                ],
+              return Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                child: Card(
+                  elevation: 5,
+                  shadowColor: Colors.black,
+                  color: const Color.fromARGB(255, 240, 240, 240),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.network(
+                              productModel[index].thumbNail ?? "")),
+                      Text(productModel[index].title ?? ""),
+                      Text(productModel[index].description ?? ""),
+                      Text(productModel[index].title ?? ""),
+                      Text("Price: \$ ${productModel[index].price.toString()}"),
+                    ],
+                  ),
+                ),
               );
             });
       }),

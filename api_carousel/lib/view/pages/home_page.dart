@@ -35,7 +35,25 @@ class _HomePageState extends State<HomePage> {
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 child: GestureDetector(
                   child: cardWidget(index),
-                  onTap: () {},
+                  onTap: () {
+                    int? newId;
+                    String? newTitle;
+                    String? newDescriptin;
+                    List<dynamic>? newImage;
+                    int? newPrice;
+                    num? newDiscount;
+                    num? newRatings;
+
+                    setState(() {
+                      newId = productModel[index].id;
+                      newTitle = productModel[index].title;
+                      newDescriptin = productModel[index].description;
+                      newImage = productModel[index].images;
+                      newPrice = productModel[index].price;
+                      newDiscount = productModel[index].discountPercent;
+                      newRatings = productModel[index].rating;
+                    });
+                  },
                 ),
               );
             });

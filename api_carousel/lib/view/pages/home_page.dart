@@ -45,6 +45,7 @@ class _HomePageState extends State<HomePage> {
                     int? newPrice;
                     num? newDiscount;
                     num? newRatings;
+                    int? newStock;
 
                     setState(() {
                       newId = productModel[index].id;
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                       newPrice = productModel[index].price;
                       newDiscount = productModel[index].discountPercent;
                       newRatings = productModel[index].rating;
-
+                      newStock = productModel[index].stock;
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -66,6 +67,7 @@ class _HomePageState extends State<HomePage> {
                                   price: newPrice,
                                   discount: newDiscount,
                                   ratings: newRatings,
+                                  stock: newStock,
                                 )),
                       );
                     });

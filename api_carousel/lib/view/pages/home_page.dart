@@ -33,28 +33,49 @@ class _HomePageState extends State<HomePage> {
               return Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                child: Card(
-                  elevation: 5,
-                  shadowColor: Colors.black,
-                  color: const Color.fromARGB(255, 240, 240, 240),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Image.network(
-                              productModel[index].thumbNail ?? "")),
-                      Text(productModel[index].title ?? ""),
-                      Text(productModel[index].description ?? ""),
-                      Text(productModel[index].title ?? ""),
-                      Text("Price: \$ ${productModel[index].price.toString()}"),
-                    ],
-                  ),
+                child: GestureDetector(
+                  child: cardWidget(index),
+                  onTap: () {},
                 ),
               );
             });
       }),
     );
   }
+
+  Card cardWidget(int index) {
+    return Card(
+      elevation: 5,
+      shadowColor: Colors.black,
+      color: const Color.fromARGB(255, 240, 240, 240),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.network(productModel[index].thumbNail ?? "")),
+            const SizedBox(height: 10),
+            Text(
+              productModel[index].title ?? "",
+              textAlign: TextAlign.left,
+              style: const TextStyle(fontWeight: FontWeight.w700),
+            ),
+            const SizedBox(height: 10),
+            Text("\$ ${productModel[index].price.toString()}",
+                textAlign: TextAlign.left,
+                style: const TextStyle(
+                    fontWeight: FontWeight.w700, color: Colors.indigo)),
+          ],
+        ),
+      ),
+    );
+  }
 }
+
+// Text(productModel[index].description ?? "",
+//                             textAlign: TextAlign.justify),
+//                         Text(productModel[index].category ?? "",
+//                             textAlign: TextAlign.left),
